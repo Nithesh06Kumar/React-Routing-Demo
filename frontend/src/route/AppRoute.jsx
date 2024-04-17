@@ -33,16 +33,22 @@ export const router = createBrowserRouter([
           },
           {
             path: ":eventId",
-            element: <EventDetailsPage />,
             loader: eventDetailsLoader,
+            id: "event-item",
+            children: [
+              {
+                index: true,
+                element: <EventDetailsPage />,
+              },
+              {
+                path: "edit",
+                element: <EditEventPage />,
+              },
+            ],
           },
           {
             path: "new",
             element: <NewEventPage />,
-          },
-          {
-            path: ":eventId/edit",
-            element: <EditEventPage />,
           },
         ],
       },
