@@ -13,6 +13,7 @@ import EditEventPage from "../pages/EditEventPage/EditEventPage";
 import LayoutPage from "../pages/LayoutPage/LayoutPage";
 import EventLayoutPage from "../pages/EventLayoutPage/EventLayoutPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import { formEventAction } from "../components/EventForm";
 
 export const router = createBrowserRouter([
   {
@@ -47,13 +48,14 @@ export const router = createBrowserRouter([
               {
                 path: "edit",
                 element: <EditEventPage />,
+                action: formEventAction,
               },
             ],
           },
           {
             path: "new",
             element: <NewEventPage />,
-            action: newEventAction,
+            action: formEventAction,
           },
         ],
       },
